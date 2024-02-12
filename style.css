@@ -1,0 +1,345 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  font-size: 62.5%;
+  
+  --hue: 195;
+
+  --azul: hsl(var(--hue), 91%, 25%);
+  --azul-escuro: hsl(var(--hue), 46%, 40%);
+  --branco: hsl(0, 0%, 100%);
+  --transp: hsla(0, 0%, 100%, 0.125);
+}
+
+html, body, input {
+  font-family: 'Mulish', sans-serif;
+  font-size: 1.6rem;
+}
+
+header {
+  background-color: var(--azul);
+  display: flex;
+  align-items: center;
+
+  padding: 1.6rem 2.8rem;
+  gap: 2.55rem;
+}
+
+header img, #logo {
+  width: 4rem;
+  height: 4rem;
+
+  border-radius: 50%;
+}
+
+header #logo {
+  fill: var(--azul-escuro);
+  background-color: var(--branco);
+  padding: .8rem;
+
+}
+
+header form {
+  flex: 1;
+}
+
+.input-wrapper label {
+  height: 1px;
+  width: 1px;
+  overflow: hidden;
+  position: absolute;
+}
+
+.input-wrapper input {
+  width: 100%;
+  padding: 1.2rem 1.5rem;
+  font-weight: 600;
+  line-height: 1.6rem;
+
+  border: 0;
+  border-radius: .4rem;
+  background-color: var(--transp);
+}
+
+.input-wrapper input::placeholder {
+  color: var(--branco);
+}
+
+body {
+  font-weight: 400;
+}
+
+#app {
+  display: grid;
+  height: 100vh;
+  grid-template-rows: max-content 1fr max-content;
+}
+
+.content {
+  overflow-y: scroll;
+}
+
+main img {
+  width: 100%;
+}
+
+.banner {
+  height: 22rem;
+  object-fit: cover;
+  object-position: 0 -100px;
+
+  border-radius: .5rem;
+}
+
+article {
+  padding: 3.2rem 2.4rem;
+}
+
+main h1 {
+  font-size: 2.4rem;
+  font-weight: 700;
+  line-height: 3.8rem;
+}
+
+.action {
+  display: flex;
+  gap: 1.2rem;
+  margin-top: .8rem;
+}
+
+.like {
+  background-color: var(--azul);
+  height: 4rem;
+  width: 4rem;
+
+  border-radius: 50%;
+  padding: 1.2rem;
+}
+
+article span {
+  display: flex;
+  margin-top: 3.2rem;
+}
+
+aside {
+  padding: 0rem 2.4rem 3.2rem;
+}
+
+aside p {
+  font-size: 2.4rem;
+  font-weight: 700;
+}
+
+figure {
+  display: flex;
+
+  padding-top: 3.2rem;
+  gap: 1.6rem;
+}
+
+figure img {
+  aspect-ratio: 16/9;
+  
+  width: 16rem;
+
+  /* PARA QUE A IMAGEM NÃO ESTIQUE E FIQUE PREENCHENDO CERTINHO NO TAMANHO ESCOLHIDO */
+  object-fit: cover;
+
+  border-radius: .5rem;
+
+  scale: 0.8;
+}
+
+figcaption {
+  display: flex;
+  flex-wrap: wrap;
+
+  padding: 0.6rem 0;
+}
+
+figcaption h2 {
+  font-size: 1.8rem;
+  font-weight: 700;
+}
+
+figcaption span {
+  font-size: 1.4rem;
+
+  display: flex;
+  align-self: flex-end;
+}
+
+footer p {
+  font-size: 1.6rem;
+  font-weight: 600;
+  text-align: center;
+
+  color: var(--branco);
+
+  padding: 2.4rem 1.6rem;
+  background-color: var(--azul-escuro);
+}
+
+@media (min-width: 480px) {
+  .banner {
+    object-position: 0 -15rem;
+  }
+}
+@media (min-width: 570px) {
+  .banner {
+    object-position: 0 -19rem;
+  }
+}
+@media (min-width: 630px) {
+  .banner {
+    object-position: 0 -21rem;
+  }
+}
+@media (min-width: 660px) {
+  .banner {
+    object-position: 0 -23rem;
+  }
+}
+@media (min-width: 690px) {
+  .banner {
+    object-position: 0 -26rem;
+  }
+}
+@media (min-width: 790px) {
+  .banner {
+    object-position: 0 -30rem;
+  }
+}
+
+@media (min-width: 850px) {
+  #app {
+    display: grid;
+    height: 100vh;
+
+    grid-template-areas: 
+    'HD HD'
+    'CT CT'
+    'FT FT';
+    grid-template-rows: max-content 1fr max-content;
+
+  }
+  
+  header {
+    grid-area: HD;
+  }
+  
+  .content {
+    padding: 4rem 2.9rem;
+
+    overflow-y: scroll;
+    grid-area: CT;
+    
+    display: grid;
+    grid-template-areas: 
+    'IMG IMG'
+    'TTL ACT'
+    'TXT TXT';
+
+    gap: 3.2rem;
+  }
+  
+  /* main {
+    max-width: 80rem;
+  } */
+
+  .banner {
+    grid-area: IMG;
+    width: 100%;
+    height: 40rem;
+    object-fit: cover;
+    object-position: center;
+
+  }
+
+  main h1 {
+    grid-area: TTL;
+  }
+
+  .action {
+    grid-area: ACT;
+  }
+
+  main p {
+    grid-area: TXT;
+  }
+
+  aside {
+    max-width: 38.4rem;
+  }
+
+  footer {
+    grid-area: FT;
+  }
+
+}
+
+@media (min-width: 930px) {
+  .banner {
+    object-position: 0 -15rem;
+  }
+}
+@media (min-width: 1000px) {
+  .banner {
+    object-position: 0 -20rem;
+  }
+}
+
+@media (min-width: 1200px) {
+  .content {    
+    padding: 4rem 10.9rem;
+  }
+}
+
+@media (min-width: 1600px) {
+  .banner {
+    object-position: 0 -35rem;
+  }
+}
+
+@media (min-width: 1900px) {
+  .banner {
+    object-position: 0 -43rem;
+  }
+}
+
+/* MOVIMENTOS */
+header img, #logo {
+  animation: appear .7s backwards;
+}
+
+main {
+  --startX: -100%;
+  animation: move .7s;
+}
+
+aside figure {
+  --delay: .1s;
+  --startX: 300%;
+  animation: move .7s var(--delay) backwards;
+}
+
+@keyframes appear {
+  0% {
+    opacity: 0;
+    transform: scale(.5);
+  }
+
+  50% {
+    transform: scale(1.1);
+  }
+}
+
+@keyframes move {
+  from {
+    transform: translateX(var(--startX));
+  }
+}
